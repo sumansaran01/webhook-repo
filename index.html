@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webhook Logs</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f9f9f9; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>📬 Webhook Event Logs</h1>
+  <pre id="log">Loading...</pre>
+
+  <script>
+    fetch('/logs')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('log').textContent = data;
+      })
+      .catch(err => {
+        document.getElementById('log').textContent = 'Error loading logs.';
+      });
+  </script>
+</body>
+</html>
+
